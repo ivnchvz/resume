@@ -11,15 +11,15 @@ body {
   .columns {
     display: grid;
     grid-template-columns: 2fr 5fr;
-    padding-bottom: 20px
+    padding-bottom: 20px;
   }
   
   .left, .right {
     padding: 6px;
   }
   
-  .about, .work, .contact {
-    margin-bottom: 30px;
+  .about, .work, .contact, .project {
+    margin-bottom: 35px;
   }
   
   .title, .about {
@@ -30,4 +30,40 @@ body {
     color: #999;
   }
   
-  
+  a {
+    text-decoration: none; 
+    color: #111;
+  }
+  a:hover {
+    text-decoration: underline; 
+  }
+
+  .comment {
+    padding-top: 2px;
+  }
+
+  .svg {
+    transform: translateY(2px);
+    padding-left: 1px;
+  }
+
+  @media (max-width: 599px) {
+    body {
+        font-size: 18px;
+        padding: 4%;
+    }
+    .columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .columns.contact {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .svg {
+      display: none;
+    }
+    
+}
