@@ -3,6 +3,8 @@ param staccname string = 'azrstaccresume'
 param appname string = 'azrappresume'
 param cosmosname string = 'azrcosmosresume'
 param tablename string = 'visitors'
+@secure()
+param accountKey string
 
 // Storage Account
 resource stacc 'Microsoft.Storage/storageAccounts@2023-01-01' = {
@@ -29,7 +31,7 @@ resource resumeapp 'Microsoft.Web/sites@2023-01-01' = {
       appSettings: [
         {
           name: 'AzureWebJobsStorage'
-          value: 'DefaultEndpointsProtocol=https;AccountName=${staccname};EndpointSuffix=core.windows.net'
+          value: 'DefaultEndpointsProtocol=https;AccountName=${staccname};AccountKey=${accountKey};EndpointSuffix=core.windows.net'
         }
         {
           name: 'FUNCTIONS_WORKER_RUNTIME'
@@ -39,6 +41,7 @@ resource resumeapp 'Microsoft.Web/sites@2023-01-01' = {
     }
   }
 }
+
 
 
 //Cosmos DB account for Table API

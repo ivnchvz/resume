@@ -31,7 +31,7 @@ jobs:
 
     - name: Deploy Bicep
       run: |
-        az deployment group create --resource-group azr_resume --template-file ./resume_infra/main.bicep
+        az deployment group create --resource-group azr_resume --template-file ./resume_infra/main.bicep --parameters accountKey=${{ secrets.STORAGE_ACCOUNT_KEY }}
 
   deploy_frontend:
     needs: deploy_infrastructure
