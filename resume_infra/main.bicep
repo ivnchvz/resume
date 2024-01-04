@@ -21,8 +21,9 @@ resource stacc 'Microsoft.Storage/storageAccounts@2023-01-01' = {
 resource resumeapp 'Microsoft.Web/sites@2023-01-01' = {
   name: appname
   location: location
-  kind: 'functionapp'
+  kind: 'functionapp,linux'
   properties: {
+    reserved: true
     siteConfig: {
       linuxFxVersion: 'python|3.11'
       appSettings: [
@@ -38,6 +39,7 @@ resource resumeapp 'Microsoft.Web/sites@2023-01-01' = {
     }
   }
 }
+
 
 //Cosmos DB account for Table API
 resource cosmosDBAccount 'Microsoft.DocumentDB/databaseAccounts@2023-11-15' = {
