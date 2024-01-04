@@ -133,4 +133,5 @@ jobs:
     - name: Deploy application
       run: |
         cd resume_backend
+        ls -la
         az functionapp deployment source config-zip --resource-group azr_resume --name azrappresume --src app.zip
