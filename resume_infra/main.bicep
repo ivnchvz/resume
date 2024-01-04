@@ -33,7 +33,7 @@ resource resumeapp 'Microsoft.Web/sites@2023-01-01' = {
       }
       {
         name: 'FUNCTIONS_WORKER_RUNTIME'
-        value: 'python'
+        value: 'python3.11'
       }
     ]
     }
