@@ -126,6 +126,7 @@ jobs:
     - name: Package application
       id: package
       run: |
+        cd resume_backend
         func azure functionapp publish azrappresume --python --output ./resume_backend/app.zip
         echo "::set-output name=zipfile::./resume_backend/app.zip"
 
