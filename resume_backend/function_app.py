@@ -14,7 +14,7 @@ def http_trigger(req: func.HttpRequest) -> func.HttpResponse:
     try:
         # Retrieve the "counter" entity from the "visitors" table
         counter_entity = table_client.get_entity(partition_key="partition1", row_key="counter")
-
+        print(counter_entity)
         # Increment the visitor count
         counter_entity["visitorCount"] += 1
 
