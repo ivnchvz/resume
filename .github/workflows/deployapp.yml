@@ -132,4 +132,4 @@ jobs:
 
     - name: Deploy application
       run: |
-        az functionapp deployment source config-zip --resource-group azr_resume --name azrappresume --src ${{ steps.package.outputs.zipfile }}
+        az functionapp deployment source config-zip --resource-group azr_resume --name azrappresume --src resume_backend/app.zip
