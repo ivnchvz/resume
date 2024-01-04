@@ -23,26 +23,22 @@ resource stacc 'Microsoft.Storage/storageAccounts@2023-01-01' = {
 resource resumeapp 'Microsoft.Web/sites@2023-01-01' = {
   name: appname
   location: location
-  kind: 'functionapp,linux'
+  kind: 'functionapp'
   properties: {
-    reserved: true
     siteConfig: {
       appSettings: [
-        {
-          name: 'AzureWebJobsStorage'
-          value: 'DefaultEndpointsProtocol=https;AccountName=${stacc.name};EndpointSuffix=core.windows.net'
-        }
-        {
-          name: 'FUNCTIONS_WORKER_RUNTIME'
-          value: 'python'
-        }
-      ]
-      linuxFxVersion: 'Python|3.9'
+      {
+        name: 'AzureWebJobsStorage'
+        value: 'DefaultEndpointsProtocol=https;AccountName=${stacc.name};EndpointSuffix=core.windows.net'
+      }
+      {
+        name: 'FUNCTIONS_WORKER_RUNTIME'
+        value: 'python'
+      }
+    ]
     }
   }
 }
-
-
 
 //Cosmos DB account for Table API
 resource cosmosDBAccount 'Microsoft.DocumentDB/databaseAccounts@2023-11-15' = {
