@@ -22,6 +22,3 @@ def http_trigger(req: func.HttpRequest) -> func.HttpResponse:
 
     # Return just the visitor count as a string
     return func.HttpResponse(str(counter_entity['visitorCount']), status_code=200)
-
-
-#comment
