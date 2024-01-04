@@ -37,7 +37,7 @@ resource resumeapp 'Microsoft.Web/sites@2023-01-01' = {
           value: 'python'
         }
       ]
-      linuxFxVersion: 'Python|3.11'
+      linuxFxVersion: 'Python|3.9'
     }
   }
 }
