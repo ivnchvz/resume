@@ -58,7 +58,7 @@ jobs:
     - name: Upload to Azure Storage
       uses: azure/cli@v1
       with:
-        azcliversion: 2.0.72
+        azcliversion: 2.55.0
         inlineScript: |
           az storage blob upload-batch --account-name azrstaccresume --source ./resume_frontend --destination '$web'
 
