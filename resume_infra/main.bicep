@@ -1,10 +1,8 @@
-
 param location string = resourceGroup().location
 param staccname string = 'azrstaccresume'
 param appname string = 'azrappresume'
 param cosmosname string = 'azrcosmosresume'
 param tablename string = 'visitors'
-
 
 // Storage Account
 resource stacc 'Microsoft.Storage/storageAccounts@2023-01-01' = {
@@ -26,16 +24,17 @@ resource resumeapp 'Microsoft.Web/sites@2023-01-01' = {
   kind: 'functionapp'
   properties: {
     siteConfig: {
+      linuxFxVersion: 'python|3.11'
       appSettings: [
-      {
-        name: 'AzureWebJobsStorage'
-        value: 'DefaultEndpointsProtocol=https;AccountName=${stacc.name};EndpointSuffix=core.windows.net'
-      }
-      {
-        name: 'FUNCTIONS_WORKER_RUNTIME'
-        value: 'python3.11'
-      }
-    ]
+        {
+          name: 'AzureWebJobsStorage'
+          value: 'DefaultEndpointsProtocol=https;AccountName=${stacc.name};EndpointSuffix=core.windows.net'
+        }
+        {
+          name: 'FUNCTIONS_WORKER_RUNTIME'
+          value: 'python'
+        }
+      ]
     }
   }
 }
@@ -59,7 +58,6 @@ resource cosmosDBAccount 'Microsoft.DocumentDB/databaseAccounts@2023-11-15' = {
     ]
   }
 }
-
 
 // Create a Cosmos DB table
 resource cosmosDBTable 'Microsoft.DocumentDB/databaseAccounts/tables@2023-11-15' = {
