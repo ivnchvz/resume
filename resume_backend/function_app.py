@@ -26,3 +26,5 @@ def http_trigger(req: func.HttpRequest) -> func.HttpResponse:
     except Exception as e:
         logging.error(f"An error occurred: {str(e)}")
         return func.HttpResponse(f"An error occurred: {str(e)}", status_code=500)
+    except:  # Catch all other exceptions
+        return func.HttpResponse("An unknown error occurred.", status_code=500)
