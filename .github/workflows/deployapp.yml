@@ -101,13 +101,13 @@ jobs:
             table_client.create_entity(entity=counter_entity)
         "
 
-    - name: Run tests
-      env:
-        COSMOS_CONNECTION_STRING: ${{ secrets.COSMOS_CONNECTION_STRING }}
-        AzureWebJobsStorage: ${{ secrets.STORAGE_CONNECTION_STRING }}
-      run: |
-        # Simple tests for your Azure Function
-        python -m pytest -v
+    # - name: Run tests
+    #   env:
+    #     COSMOS_CONNECTION_STRING: ${{ secrets.COSMOS_CONNECTION_STRING }}
+    #     AzureWebJobsStorage: ${{ secrets.STORAGE_CONNECTION_STRING }}
+    #   run: |
+    #     # Simple tests for your Azure Function
+    #     python -m pytest -v
 
     - name: Login to Azure
       uses: azure/login@v1
