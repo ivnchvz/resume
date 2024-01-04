@@ -1,8 +1,8 @@
 
 param location string = resourceGroup().location
-param staccname string = 'azr_stacc'
-param appname string = 'azr_app'
-param cosmosname string = 'azr_cosmos'
+param staccname string = 'azrstacc'
+param appname string = 'azrapp'
+param cosmosname string = 'azrcosmos'
 param tablename string = 'visitors'
 
 
