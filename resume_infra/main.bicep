@@ -43,6 +43,7 @@ resource resumeapp 'Microsoft.Web/sites@2023-01-01' = {
 //Cosmos DB account for Table API
 resource cosmosDBAccount 'Microsoft.DocumentDB/databaseAccounts@2023-11-15' = {
   name: cosmosname
+  location: location
   properties: {
     databaseAccountOfferType: 'Standard'
     locations: [
