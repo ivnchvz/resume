@@ -128,6 +128,8 @@ jobs:
       run: |
         cd resume_backend
         func azure functionapp publish azrappresume --python --output ./app.zip
+        pwd
+        ls -la
         echo "::set-output name=zipfile::./app.zip"
 
     - name: Deploy application
