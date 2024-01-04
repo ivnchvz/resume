@@ -4,8 +4,8 @@ from azure.functions import HttpRequest
 
 def test_http_trigger():
     # Setup
-    req = HttpRequest(method='GET', url='http://localhost:7071/api/HttpTrigger', params={})
-    
+    req = HttpRequest(method='GET', url='http://localhost:7071/api/HttpTrigger', params={}, body='')
+
     # Exercise
     resp = http_trigger(req)
 
@@ -13,3 +13,4 @@ def test_http_trigger():
     assert resp.status_code == 200  # check if status code is 200
 
     # Cleanup - none necessary for this simple test
+
