@@ -81,6 +81,26 @@ jobs:
         python -m pip install --upgrade pip
         pip install pytest azure-functions azure-data-tables
 
+    - name: Create counter entity
+      env:
+        COSMOS_CONNECTION_STRING: ${{ secrets.COSMOS_CONNECTION_STRING }}
+      run: |
+        python -c "
+        from azure.data.tables import TableClient
+        import os
+
+        # Create a TableClient to interact with your local Azure Table Storage
+        table_client = TableClient.from_connection_string(os.getenv('COSMOS_CONNECTION_STRING'), 'visitors')
+
+        try:
+            # Try to get the 'counter' entity
+            counter_entity = table_client.get_entity(partition_key='partition1', row_key='counter')
+        except:
+            # If the 'counter' entity doesn't exist, create it
+            counter_entity = {'PartitionKey': 'partition1', 'RowKey': 'counter', 'visitorCount': 0}
+            table_client.create_entity(entity=counter_entity)
+        "
+
     - name: Run tests
       env:
         COSMOS_CONNECTION_STRING: ${{ secrets.COSMOS_CONNECTION_STRING }}
