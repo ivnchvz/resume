@@ -45,6 +45,10 @@ jobs:
       uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
+        
+    - name: Set active account
+      run: | 
+        az account set --subscription ${{ secrets.SUBSCRIPTION_ID }} 
 
     - name: Enable Static Website
       run: |
