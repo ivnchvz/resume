@@ -8,9 +8,9 @@ def test_http_trigger():
 
     # Exercise
     resp = http_trigger(req)
+    print(resp)  # Add this line
 
     # Verify
     assert resp.status_code == 200  # check if status code is 200
 
     # Cleanup - none necessary for this simple test
-
