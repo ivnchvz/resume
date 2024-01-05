@@ -117,6 +117,10 @@ jobs:
     #   run: |
     #     # Simple tests for your Azure Function
     #     python -m pytest -v
+    - name: Install Azure CLI
+      run: |
+        curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
 
     - name: Login to Azure
       uses: azure/login@v1
@@ -131,6 +135,7 @@ jobs:
         pwd
         ls -la
         echo "::set-output name=zipfile::./app.zip"
+        ls -la /home/site/wwwroot
 
     - name: Deploy application
       run: |
