@@ -15,3 +15,5 @@ def test_http_trigger():
         assert resp.status_code == 200  # check if status code is 200
     else:
         assert False, "http_trigger returned None"
+
+
