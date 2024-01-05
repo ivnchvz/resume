@@ -5,6 +5,8 @@ param cosmosname string = 'azrcosmosresume'
 param tablename string = 'visitors'
 @secure()
 param accountKey string
+@secure()
+param functionPak string
 
 // Storage Account
 resource stacc 'Microsoft.Storage/storageAccounts@2023-01-01' = {
@@ -40,6 +42,10 @@ resource resumeapp 'Microsoft.Web/sites@2023-01-01' = {
         {
           name: 'FUNCTIONS_EXTENSION_VERSION'
           value: '~4'
+        }
+        {
+          name: 'WEBSITE_RUN_FROM_PACKAGE'
+          value: functionPak
         }
       ]
     }
