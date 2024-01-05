@@ -69,10 +69,10 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
         python-version: '3.11'
 
@@ -115,29 +115,14 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-    - name: Build
-      run: |
-        cd resume_backend
-        func host start --build
+    
+    - name: 'Run Azure Functions Action'
+      uses: Azure/functions-action@v1
+      id: fa
+      with:
+          app-name: azrappresume
+          package: resume_backend
+          publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
+          scm-do-build-during-deployment: true
+          enable-oryx-build: true
 
-
-    - name: Package application
-      id: package
-      run: |
-        cd resume_backend
-        func azure functionapp publish azrappresume --python
-        pwd
-        ls -la
-
-    # - name: Download blob to runner
-    #   run: |
-    #       pwd
-    #       ls -la
-    #       az storage blob download --name scm-latest-azrappresume.zip --file ./resume_backend/scm-latest-azrappresume.zip --account-name azrstaccresume --container-name scm-releases
-
-
-    # - name: Deploy application
-    #   run: |
-    #     cd resume_backend
-    #     ls -la
-    #     az functionapp deployment source config-zip --resource-group azr_resume --name azrappresume --src ./scm-latest-azrappresume.zip
