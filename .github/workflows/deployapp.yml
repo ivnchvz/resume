@@ -117,6 +117,7 @@ jobs:
 
     - name: Build
       run: |
+        cd resume_backend
         func host start --build
 
 
