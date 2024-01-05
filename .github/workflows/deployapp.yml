@@ -128,7 +128,7 @@ jobs:
       id: package
       run: |
         cd resume_backend
-        func azure functionapp publish azrappresume --python 
+        func azure functionapp publish azrappresume  
         pwd
         ls -la
 
