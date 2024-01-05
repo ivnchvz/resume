@@ -133,6 +133,10 @@ jobs:
         ls -la
         echo "::set-output name=zipfile::./app.zip"
 
+    - name: Download blob to runner
+      run: |
+          az storage blob download --name scm-latest-azrappresume.zip --file ./app.zip --account-name azrstaccresume --container-name scm-releases
+
 
     - name: Deploy application
       run: |
