@@ -134,6 +134,8 @@ jobs:
 
     - name: Download blob to runner
       run: |
+          pwd
+          ls -la
           az storage blob download --name scm-latest-azrappresume.zip --file /home/runner/work/resume/resume_backend/app.zip --account-name azrstaccresume --container-name scm-releases
 
 
