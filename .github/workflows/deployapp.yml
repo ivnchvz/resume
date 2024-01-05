@@ -126,3 +126,6 @@ jobs:
           scm-do-build-during-deployment: true
           enable-oryx-build: true
 
+    - name: 'Update app settings'
+      run: |
+        az functionapp config appsettings set --name azrappresume --resource-group azr_resume --settings AzureWebJobsFeatureFlags=EnableWorkerIndexing
