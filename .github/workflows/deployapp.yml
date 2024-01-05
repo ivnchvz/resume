@@ -117,9 +117,6 @@ jobs:
     #   run: |
     #     # Simple tests for your Azure Function
     #     python -m pytest -v
-    - name: Install Azure CLI
-      run: |
-        curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
 
     - name: Login to Azure
@@ -131,11 +128,11 @@ jobs:
       id: package
       run: |
         cd resume_backend
-        func azure functionapp publish azrappresume --python --output ./app.zip
+        func azure functionapp publish azrappresume --python 
         pwd
         ls -la
         echo "::set-output name=zipfile::./app.zip"
-        ls -la /home/site/wwwroot
+
 
     - name: Deploy application
       run: |
