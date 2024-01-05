@@ -116,7 +116,6 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     - name: Build
-      id: package
       run: |
         func host start --build
 
