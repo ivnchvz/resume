@@ -31,7 +31,7 @@ jobs:
 
     - name: Deploy Bicep
       run: |
-        az deployment group create --resource-group azr_resume --template-file ./resume_infra/main.bicep --parameters accountKey=${{ secrets.STORAGE_ACCOUNT_KEY }} 
+        az deployment group create --resource-group azr_resume --template-file ./resume_infra/main.bicep  
 
   deploy_frontend:
     needs: deploy_infrastructure
@@ -90,43 +90,52 @@ jobs:
         sudo apt-get install azure-functions-core-tools-3
     
 
-    - name: Create counter entity
-      env:
-        COSMOS_CONNECTION_STRING: ${{ secrets.COSMOS_CONNECTION_STRING }}
-      run: |
-        python -c "
-        from azure.data.tables import TableClient
-        import os
+    # - name: Create counter entity
+    #   env:
+    #     COSMOS_CONNECTION_STRING: ${{ secrets.COSMOS_CONNECTION_STRING }}
+    #   run: |
+    #     python -c "
+    #     from azure.data.tables import TableClient
+    #     import os
 
-        # Create a TableClient to interact with your local Azure Table Storage
-        table_client = TableClient.from_connection_string(os.getenv('COSMOS_CONNECTION_STRING'), 'visitors')
+    #     # Create a TableClient to interact with your local Azure Table Storage
+    #     table_client = TableClient.from_connection_string(os.getenv('COSMOS_CONNECTION_STRING'), 'visitors')
 
-        try:
-            # Try to get the 'counter' entity
-            counter_entity = table_client.get_entity(partition_key='partition1', row_key='counter')
-        except:
-            # If the 'counter' entity doesn't exist, create it
-            counter_entity = {'PartitionKey': 'partition1', 'RowKey': 'counter', 'visitorCount': 0}
-            table_client.create_entity(entity=counter_entity)
-        "
+    #     try:
+    #         # Try to get the 'counter' entity
+    #         counter_entity = table_client.get_entity(partition_key='partition1', row_key='counter')
+    #     except:
+    #         # If the 'counter' entity doesn't exist, create it
+    #         counter_entity = {'PartitionKey': 'partition1', 'RowKey': 'counter', 'visitorCount': 0}
+    #         table_client.create_entity(entity=counter_entity)
+    #     "
 
     - name: Login to Azure
       uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-    
-    - name: 'Run Azure Functions Action'
-      uses: Azure/functions-action@v1
-      id: fa
-      with:
-          app-name: azrappresume
-          package: resume_backend
-          publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
-          scm-do-build-during-deployment: true
-          enable-oryx-build: true
 
-    - name: 'Update app settings'
+
+    - name: Deploy function project to Azure
       run: |
+        pwd
+        cd ./resume_backend
+        func azure functionapp publish azrappresume
         az functionapp config appsettings set --name azrappresume --resource-group azr_resume --settings AzureWebJobsFeatureFlags=EnableWorkerIndexing
-        az webapp/logicapp/functionapp config appsettings list
+
+    
+    # - name: 'Run Azure Functions Action'
+    #   uses: Azure/functions-action@v1
+    #   id: fa
+    #   with:
+    #       app-name: azrappresume
+    #       package: resume_backend
+    #       publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
+    #       scm-do-build-during-deployment: true
+    #       enable-oryx-build: true
+
+    # - name: 'Update app settings'
+    #   run: |
+    #     az functionapp config appsettings set --name azrappresume --resource-group azr_resume --settings AzureWebJobsFeatureFlags=EnableWorkerIndexing
+       

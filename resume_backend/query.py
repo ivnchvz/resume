@@ -10,6 +10,11 @@ try:
 except:
     print("Table 'visitors' already exists.")  # The table already exists
 
+# Create an entity with a partition key
+entity = {"PartitionKey": "partition1", "RowKey": "counter", "visitorCount": 0}
+table_client.create_entity(entity)
+print("Entity 'counter' created successfully.")
+
 # Query the table
 entities = table_client.query_entities("")
 print("Querying entities...")
