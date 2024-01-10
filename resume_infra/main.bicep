@@ -31,6 +31,7 @@ resource servicePlan 'Microsoft.Web/serverfarms@2023-01-01' = {
     name: skuName
     tier: 'Standard'
   }
+  kind: 'linux'
 }
 
 
@@ -62,7 +63,7 @@ resource sites 'Microsoft.Web/sites@2023-01-01' = {
     vnetContentShareEnabled: false
     siteConfig: {
       numberOfWorkers: 1
-      linuxFxVersion: 'PYTHON:3.11'
+      linuxFxVersion: 'Python|3.11'
       acrUseManagedIdentityCreds: false
       alwaysOn: false
       http20Enabled: false
