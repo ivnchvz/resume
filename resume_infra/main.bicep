@@ -29,7 +29,7 @@ resource servicePlan 'Microsoft.Web/serverfarms@2023-01-01' = {
   location: location
   sku: {
     name: skuName
-    tier: 'Free'
+    tier: 'Standard'
   }
 }
 
