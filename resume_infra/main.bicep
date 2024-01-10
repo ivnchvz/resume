@@ -27,6 +27,9 @@ resource stacc 'Microsoft.Storage/storageAccounts@2023-01-01' = {
 resource servicePlan 'Microsoft.Web/serverfarms@2023-01-01' = {
   name: servicePlanName
   location: location
+  properties: {
+    reserved: true
+  }
   sku: {
     name: skuName
     tier: 'Standard'
