@@ -103,12 +103,6 @@ resource scm 'Microsoft.Web/sites/basicPublishingCredentialsPolicies@2023-01-01'
   }
 }
 
-resource config 'Microsoft.Web/sites/config@2023-01-01' = {
-  parent: sites
-  name: 'web'
-}
-
-
 
 resource databaseAccount 'Microsoft.DocumentDB/databaseAccounts@2023-09-15' = {
   name: cosmosdbname
