@@ -62,7 +62,7 @@ resource sites 'Microsoft.Web/sites@2023-01-01' = {
     vnetContentShareEnabled: false
     siteConfig: {
       numberOfWorkers: 1
-      linuxFxVersion: 'Python|3.11'
+      linuxFxVersion: 'PYTHON:3.11'
       acrUseManagedIdentityCreds: false
       alwaysOn: false
       http20Enabled: false
