@@ -121,8 +121,9 @@ jobs:
       run: |
         pwd
         cd ./resume_backend
+        az functionapp config appsettings set --name azrappresume --resource-group azr_resume --settings FUNCTIONS_WORKER_RUNTIME=python AzureWebJobsFeatureFlags=EnableWorkerIndexing
         func azure functionapp publish azrappresume
-        az functionapp config appsettings set --name azrappresume --resource-group azr_resume --settings AzureWebJobsFeatureFlags=EnableWorkerIndexing
+      
 
     
     # - name: 'Run Azure Functions Action'
