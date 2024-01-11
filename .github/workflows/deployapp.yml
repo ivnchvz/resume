@@ -141,3 +141,4 @@ jobs:
     #     az functionapp config appsettings set --name azrappresume --resource-group azr_resume --settings AzureWebJobsFeatureFlags=EnableWorkerIndexing
     # az ad sp create-for-rbac --name githubresume --sdk-auth --role contributor \
     # --scopes /subscriptions/44b808ca-eb07-40b4-8458-2ccf29611730/resourceGroups/azr_resume
+    #try
