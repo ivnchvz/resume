@@ -60,7 +60,7 @@ jobs:
       with:
         azcliversion: 2.55.0
         inlineScript: |
-          az storage blob upload-batch --account-name azrstaccresume --source ./resume_frontend --destination '$web'
+          az storage blob upload-batch --account-name azrstaccresume --source ./resume_frontend --destination '$web' --overwrite
 
 
   test_and_deploy_backend:
