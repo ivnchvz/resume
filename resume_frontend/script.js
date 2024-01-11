@@ -1,6 +1,6 @@
 window.onload = function() {
     // Send an HTTP request to the Azure Function when the webpage loads
-    fetch('https://azrappresume.azurewebsites.net')
+    fetch('https://azrappresume.azurewebsites.net/api/http_trigger')
         .then(response => response.text())
         .then(data => {
             // Update the webpage with the new visitor count
