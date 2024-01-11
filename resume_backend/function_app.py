@@ -31,6 +31,7 @@ def http_trigger(req: func.HttpRequest) -> func.HttpResponse:
         return func.HttpResponse("An unknown error occurred.", status_code=500)
  """
 
+#This is working!
 
 import logging
 import azure.functions as func
@@ -71,3 +72,4 @@ def main(req: func.HttpRequest, inputDocument: func.DocumentList, outputDocument
 
     # Return just the visitor count as a string
     return func.HttpResponse(str(counter_entity['visitorCount']['$v']), status_code=200)    
+
