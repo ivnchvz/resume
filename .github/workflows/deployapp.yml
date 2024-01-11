@@ -102,7 +102,6 @@ jobs:
       run: |
         pwd
         cd ./resume_backend
-        az functionapp config appsettings set --name azrappresume --resource-group azr_resume --settings WEBSITE_RUN_FROM_PACKAGE=1 AzureWebJobsFeatureFlags=EnableWorkerIndexing  CosmosDbConnectionString=${{ secrets.COSMOS_CONNECTION_STRING }} AzureWebJobsStorage=${{ secrets.STORAGE_CONNECTION_STRING }}
         func azure functionapp publish azrappresume --python
       
 
