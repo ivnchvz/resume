@@ -3,7 +3,7 @@ param staccname string = 'azrstaccresume'
 param appname string = 'azrappresume'
 param cosmosdbname string = 'azrcosmosresume'
 param servicePlanName string  = 'azrserviceplan'
-param skuName string = 'S1'
+param skuName string = 'Y1'
 
 
 // Storage Account
@@ -32,7 +32,7 @@ resource servicePlan 'Microsoft.Web/serverfarms@2023-01-01' = {
   }
   sku: {
     name: skuName
-    tier: 'Standard'
+    tier: 'Dynamic'
   }
   kind: 'linux'
 }
