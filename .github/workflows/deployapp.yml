@@ -105,7 +105,14 @@ jobs:
         func azure functionapp publish azrappresume --python
       
 
-    
+    - name: Purge Azure CDN
+      run: |
+        az cdn endpoint purge --content-paths "/*" --name ${{ secrets.CDN_ENDPOINT }} --profile-name ${{ secrets.CDN_PROFILE }} --resource-group azr_resume
+  
+
+
+
+
     # - name: 'Run Azure Functions Action'
     #   uses: Azure/functions-action@v1
     #   id: fa
