@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <title>CV Website</title>
+</head>
+<body>
+    <div class="left title">HTML and CSS</div>
+    <div class="left info">I started by structuring my resume in HTML, using semantic tags for clarity and accessibility. Then, I applied CSS to enhance the visual appeal of the webpage, transforming the raw HTML into a styled, user-friendly site.</div>
+
+    <div class="left title">Deploying as a Static Website</div>
+    <div class="left info">Once I was happy with my HTML and CSS, I deployed my resume online as an Azure Storage static website. While services like Netlify and GitHub Pages are great, I chose Azure Storage for this project to get hands-on experience with it.</div>
+    
+    <div class="left title">Visitor Counter with Javascript and CosmosDB</div>
+    <div class="left info">I wanted to track how many people visited my site, so I added a visitor counter using Javascript. The counter retrieves and updates its count in a database. For this, I used the Table API of Azure’s CosmosDB. It was my first time working with CosmosDB, and I found it to be a powerful and flexible database service.</div>
+
+    <div class="left title">API with Azure Functions</div>
+    <div class="left info">To ensure secure communication with CosmosDB, I created an API using Azure Functions with an HTTP trigger. This API accepts requests from my web app and communicates with the database. It was a great way to learn about serverless architecture and how it can simplify backend development.</div>
+
+    <div class="left title">Infrastructure as Code</div>
+    <div class="left info">Instead of manually configuring my API resources, I defined them in an Azure Resource Manager (ARM) template. This approach, known as “infrastructure as code” (IaC), saves a lot of time and reduces the risk of human error.</div>
+
+    <div class="left title">Source Control and CI/CD</div>
+    <div class="left info">I used GitHub for source control and set up continuous integration and deployment (CI/CD) for both my back-end API and front-end website. With this setup, my application updates automatically whenever I make a change to the code. It’s a huge time-saver and ensures my website is always up-to-date with the latest changes.</div>
+
+    <div class="left title">Conclusion</div>
+    <div class="left info">Building this project was a fantastic learning experience. I got hands-on experience with many different technologies and best practices, and I’m excited to apply what I’ve learned to future projects. I hope my journey can inspire and help others who are looking to do something similar.</div>
+</body>
+</html>
