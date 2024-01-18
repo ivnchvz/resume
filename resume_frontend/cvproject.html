@@ -8,28 +8,30 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./style.css">
-    <title>CV Website</title>
+    <title>Resume Website Project</title>
 </head>
 <body>
+
+    <?xml version="1.0" encoding="UTF-8"?>
+<svg width="15px" height="15px"  id="backbtn" viewBox="0 0 24 24" stroke-width="2.1" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" color="#000000">
+    <a xlink:href="https://cv.azureedge.net/">
+        <path d="M21 12L3 12M3 12L11.5 3.5M3 12L11.5 20.5" stroke="#000000" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"></path>
+    </a>
+</svg>
+
     <div class="left title">HTML and CSS</div>
-    <div class="left info">I started by structuring my resume in HTML, using semantic tags for clarity and accessibility. Then, I applied CSS to enhance the visual appeal of the webpage, transforming the raw HTML into a styled, user-friendly site.</div>
+    <div class="left info">To create my website, I began by building the content in HTML, utilizing text hierarchy to ensure clarity and accessibility.  Next, I brought my webpage to life with CSS, adding style and polish to transform the basic HTML into a visually appealing, user-friendly experience. With these fundamental building blocks in place, I was able to create a strong foundation for my website that prioritized both functionality and aesthetics.</div>
 
     <div class="left title">Deploying as a Static Website</div>
-    <div class="left info">Once I was happy with my HTML and CSS, I deployed my resume online as an Azure Storage static website. While services like Netlify and GitHub Pages are great, I chose Azure Storage for this project to get hands-on experience with it.</div>
+    <div class="left info">Once I was happy with my HTML and CSS, I took the next step and decided to deploy my resume website using Azure Storage as a static website. While there are many excellent options for hosting static websites, such as Netlify and GitHub Pages, I chose Azure Storage for this particular project to gain hands-on experience with the platform and expand my skillset.</div>
     
-    <div class="left title">Visitor Counter with Javascript and CosmosDB</div>
-    <div class="left info">I wanted to track how many people visited my site, so I added a visitor counter using Javascript. The counter retrieves and updates its count in a database. For this, I used the Table API of Azure’s CosmosDB. It was my first time working with CosmosDB, and I found it to be a powerful and flexible database service.</div>
+    <div class="left title">Visitor Counter with Javascript, Azure Function API and CosmosDB</div>
+    <div class="left info">To keep track of website visitors, I added a JavaScript component that communicates with an Azure Function I created. This function interacts with Azure's CosmosDB Table API, retrieving the current visitor count, adding one to account for the current view, and then storing the updated count back in the database. This allowed me to accurately track the number of visitors and gain practical experience with Azure Functions and CosmosDB. I was impressed with the flexibility and efficiency of these tools and was pleased with how seamlessly they integrated into my project.</div>
 
-    <div class="left title">API with Azure Functions</div>
-    <div class="left info">To ensure secure communication with CosmosDB, I created an API using Azure Functions with an HTTP trigger. This API accepts requests from my web app and communicates with the database. It was a great way to learn about serverless architecture and how it can simplify backend development.</div>
-
-    <div class="left title">Infrastructure as Code</div>
-    <div class="left info">Instead of manually configuring my API resources, I defined them in an Azure Resource Manager (ARM) template. This approach, known as “infrastructure as code” (IaC), saves a lot of time and reduces the risk of human error.</div>
-
-    <div class="left title">Source Control and CI/CD</div>
-    <div class="left info">I used GitHub for source control and set up continuous integration and deployment (CI/CD) for both my back-end API and front-end website. With this setup, my application updates automatically whenever I make a change to the code. It’s a huge time-saver and ensures my website is always up-to-date with the latest changes.</div>
+    <div class="left title">Infrastructure as Code & CI/CD</div>
+    <div class="left info">Instead of manually configuring my resources, I defined them in a Bicep template using infrastructure as code (IaC). This approach allows developers to describe their infrastructure in a declarative manner using code, which can then be deployed and managed in a consistent and efficient way. By using IaC, I was able to save time and reduce the risk of errors in my configuration. <br> <br> I also utilized GitHub for source control and set up continuous integration and deployment (CI/CD) with Github Actions for my back-end API and front-end website. CI/CD is a methodology that automates the building, testing, and deployment of code changes, allowing for faster and more reliable delivery of updates. By using CI/CD, I was able to ensure that my application is always up-to-date with the latest changes, without the need for manual intervention. This helped me save time and reduce the risk of errors in my deployments. </div>
 
     <div class="left title">Conclusion</div>
-    <div class="left info">Building this project was a fantastic learning experience. I got hands-on experience with many different technologies and best practices, and I’m excited to apply what I’ve learned to future projects. I hope my journey can inspire and help others who are looking to do something similar.</div>
+    <div class="left info">This project was not only a great learning experience, but also an opportunity to apply best practices in cloud technology and cloud-based system design. Through this work, I was able to gain a deeper understanding of tools and methodologies such as infrastructure as code and continuous integration/deployment, and I'm excited to continue building on this foundation in my future projects.</div>
 </body>
 </html>
