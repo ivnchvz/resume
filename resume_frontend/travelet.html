@@ -27,11 +27,9 @@
             background: #fff;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
             position: relative;
-            padding-top: 65px;
-            /* Space for the notch */
         }
 
-        /* Adjusted Notch: smaller and thinner */
+        /* Notch overlay: sits on top of the iframe */
         .phone-frame::before {
             content: '';
             position: absolute;
@@ -44,6 +42,7 @@
             border-bottom-left-radius: 10px;
             border-bottom-right-radius: 10px;
             z-index: 20;
+            pointer-events: none;
         }
 
         iframe {
@@ -79,7 +78,7 @@
 
     <div class="phone-wrapper">
         <div class="phone-frame">
-            <iframe src="./travelet-app/index.html"></iframe>
+            <iframe src="./travelet-app/"></iframe>
         </div>
     </div>
 
