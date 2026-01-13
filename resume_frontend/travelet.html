@@ -27,22 +27,22 @@
             background: #fff;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
             position: relative;
-            padding-top: 25px;
+            padding-top: 45px;
             /* Space for the notch */
         }
 
-        /* Adjusted Notch: smaller and further up */
+        /* Adjusted Notch: smaller and thinner */
         .phone-frame::before {
             content: '';
             position: absolute;
             top: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 120px;
-            height: 18px;
+            width: 100px;
+            height: 12px;
             background: #1a1a1b;
-            border-bottom-left-radius: 12px;
-            border-bottom-right-radius: 12px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
             z-index: 20;
         }
 
@@ -79,7 +79,7 @@
 
     <div class="phone-wrapper">
         <div class="phone-frame">
-            <iframe src="./travelet-app/(tabs)/index.html"></iframe>
+            <iframe src="./travelet-app/index.html"></iframe>
         </div>
     </div>
 
