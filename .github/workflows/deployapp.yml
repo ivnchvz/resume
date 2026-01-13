@@ -107,7 +107,7 @@ jobs:
 
     - name: Purge Azure CDN
       run: |
-        az cdn endpoint purge --content-paths "/*" --name ${{ secrets.CDN_ENDPOINT }} --profile-name ${{ secrets.CDN_PROFILE }} --resource-group azr_resume
+        az cdn endpoint purge --no-wait --content-paths "/*" --name ${{ secrets.CDN_ENDPOINT }} --profile-name ${{ secrets.CDN_PROFILE }} --resource-group azr_resume
   
 
 
